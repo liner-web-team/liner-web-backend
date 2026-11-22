@@ -18,6 +18,11 @@ export interface AuthTokens {
   user: PublicUser;
   expiresAt?: number;
 }
+export interface SessionResponse {
+  accessToken: string;
+  accessTokenExpiresAt: string;
+  user: AuthUser;
+}
 
 // export interface AuthResult {
 //   accessToken: string;
@@ -37,4 +42,7 @@ export interface LoginInput {
   email: string;
   password: string;
 }
+
+
+
 

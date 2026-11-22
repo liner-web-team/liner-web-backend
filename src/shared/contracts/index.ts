@@ -5,6 +5,7 @@ export type {
   // AuthResult,
   RegisterInput,
   LoginInput,
+  SessionResponse,
 } from "./auth.js";
 
 export type {

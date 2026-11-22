@@ -1,6 +1,7 @@
 import type { FastifyError, FastifyRequest, FastifyReply } from "fastify";
 
 import { AppError } from "./app-error.js";
+import type { ErrorResponse } from "../contracts/error.js";
 
 export function errorHandler(
   error: FastifyError,
@@ -14,7 +15,7 @@ export function errorHandler(
       statusCode: error.statusCode,
       code: error.code,
       message: error.message,
-    });
+    } satisfies ErrorResponse);
 
     return;
   }
@@ -30,5 +31,5 @@ export function errorHandler(
     statusCode: 500,
     code: "INTERNAL_SERVER_ERROR",
     message: "Internal Server Error",
-  });
+  } satisfies ErrorResponse);
 }

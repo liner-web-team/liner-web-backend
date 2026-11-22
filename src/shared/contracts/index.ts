@@ -84,3 +84,5 @@ export type {
   PopularTrackItem,
   PopularTracksResponse,
 } from "./history.js";
+
+export type { ErrorResponse } from "./error.js";

@@ -7,8 +7,10 @@ import { createDependencyContainer } from "./composition/container.js";
 import { healthRoutes } from "./routes/health.routes.js";
 import { errorHandler } from "./shared/errors/error-handler.js";
 import { registerCors } from "./plugins/cors.js";
+import { authRoutes } from "./routes/auth.routes.js";
 import databasePlugin from "./plugins/database.plugin.js";
 import { asValue } from "awilix";
+import cookie from "@fastify/cookie";
 
 import { registerDependencies } from "./composition/registrations.js";
 
@@ -26,6 +28,7 @@ export function buildApp(
   registerDependencies(container);
   app.setErrorHandler(errorHandler);
   registerCors(app);
+  app.register(cookie);
 
   if (config.database) {
     app.decorate("db", config.database);
@@ -48,6 +51,7 @@ export function buildApp(
   });
 
   app.register(healthRoutes);
+  app.register(authRoutes, { prefix: "/auth" });
 
   return app;
 }

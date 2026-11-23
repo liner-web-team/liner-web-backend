@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - develop
+      - feature/backend-neon-db
   workflow_dispatch:
 
 permissions:

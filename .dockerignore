@@ -1,0 +1,16 @@
+node_modules
+dist
+.git
+.github
+tests
+coverage
+docs
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+README.md
+eslint.config.js
+.prettier*

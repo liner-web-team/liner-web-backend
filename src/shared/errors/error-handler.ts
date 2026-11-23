@@ -25,7 +25,16 @@ export function errorHandler(
     return;
   }
 
-  request.log.error({ err: error }, "Unhandled server error");
+
+  request.log.error(
+    {
+      errorType: error.name,
+      errorCode: error.code,
+      statusCode: 500,
+    },
+    "Unhandled server error",
+  );
+
 
   reply.code(500).send({
     statusCode: 500,

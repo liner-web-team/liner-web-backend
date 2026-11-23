@@ -88,15 +88,20 @@ describe("Error Handler", () => {
         .split("\n")
         .map((line) => JSON.parse(line));
 
+
       expect(events).toContainEqual(
         expect.objectContaining({
           level: 50,
           msg: "Unhandled server error",
-          err: expect.objectContaining({
-            message: "Private diagnostic details",
-          }),
+          errorType: "Error",
+          statusCode: 500,
         }),
       );
+
+      expect(JSON.stringify(events)).not.toContain(
+        "Private diagnostic details",
+      );
+
     } finally {
       await loggingApp.close();
     }

@@ -8,6 +8,7 @@ const linerCatalogApiKey = process.env.LINER_CATALOG_API_KEY?.trim() ?? "";
 const linerLyricsApiBaseUrl = process.env.LINER_LYRICS_API_BASE_URL?.trim() ?? "";
 const linerLyricsApiKey = process.env.LINER_LYRICS_API_KEY?.trim() ?? "";
 const databaseUrl = process.env.DATABASE_URL?.trim() ?? "";
+const jwtSecret = process.env.JWT_SECRET?.trim() ?? "";
 
 if (host.trim() === "") {
   throw new Error("HOST must not be empty");
@@ -26,4 +27,5 @@ export const env = {
   linerLyricsApiBaseUrl,
   linerLyricsApiKey,
   databaseUrl,
+  jwtSecret,
 } as const;
